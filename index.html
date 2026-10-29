@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深圳市健科优创科技有限公司</title>
+<meta name="description" content="深圳市健科优创科技有限公司专注于AI智能健康设备、物联网云平台、语音交互技术与多平台健康APP的软硬件一体化解决方案">
+<style>
+@keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-20px)} }
+@keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-25px,15px)} }
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+@keyframes scanline { 0%{top:0} 100%{top:100%} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:"PingFang SC","Microsoft YaHei",sans-serif; color:#dce6f2; background:#0a0e1a; }
+
+/* ===== 导航 ===== */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:20px 48px; background:rgba(10,14,26,.82); backdrop-filter:blur(14px); border-bottom:1px solid rgba(56,189,248,.12); }
+nav .logo { color:#fff; font-weight:700; letter-spacing:2px; font-size:1.05rem; }
+nav .logo span { color:#38bdf8; }
+nav .links a { color:#94a8c3; text-decoration:none; margin-left:36px; font-size:.9rem; letter-spacing:1px; transition:color .25s; }
+nav .links a:hover { color:#38bdf8; }
+
+/* ===== Hero ===== */
+.hero { position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; overflow:hidden; padding:120px 24px 80px;
+background: radial-gradient(ellipse 80% 55% at 50% -10%, rgba(56,189,248,.18), transparent),
+            radial-gradient(ellipse 60% 45% at 85% 90%, rgba(14,165,233,.10), transparent),
+            radial-gradient(ellipse 50% 40% at 10% 80%, rgba(99,102,241,.10), transparent),
+            #0a0e1a; }
+.hero::before { content:""; position:absolute; inset:0;
+background-image:linear-gradient(rgba(56,189,248,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.05) 1px,transparent 1px);
+background-size:56px 56px; mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%); }
+.orb { position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none; }
+.orb1 { width:420px; height:420px; background:rgba(56,189,248,.13); top:8%; left:12%; animation:float1 12s ease-in-out infinite; }
+.orb2 { width:360px; height:360px; background:rgba(99,102,241,.12); bottom:12%; right:10%; animation:float2 14s ease-in-out infinite; }
+.badge { display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(56,189,248,.35); color:#7dd3fc; font-size:.78rem; letter-spacing:3px; padding:8px 20px; border-radius:999px; margin-bottom:34px; background:rgba(56,189,248,.06); animation:fadeUp .8s ease both; }
+.badge::before { content:""; width:6px; height:6px; border-radius:50%; background:#38bdf8; animation:pulse 2.4s infinite; }
+.hero h1 { font-size:clamp(1.9rem,4.6vw,3.4rem); color:#fff; letter-spacing:6px; font-weight:700; line-height:1.35; animation:fadeUp .8s .12s ease both; }
+.hero h1 .grad { background:linear-gradient(92deg,#7dd3fc 0%,#38bdf8 40%,#818cf8 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero .sub { margin-top:22px; font-size:clamp(.95rem,1.6vw,1.12rem); color:#8fa5c0; letter-spacing:2.5px; line-height:2; animation:fadeUp .8s .24s ease both; }
+.hero .en { margin-top:10px; font-size:.72rem; color:#4a5d78; letter-spacing:4px; animation:fadeUp .8s .3s ease both; }
+.hero .cta { margin-top:44px; display:flex; gap:18px; flex-wrap:wrap; justify-content:center; animation:fadeUp .8s .4s ease both; }
+.btn { display:inline-block; padding:14px 38px; border-radius:8px; font-size:.92rem; letter-spacing:2px; text-decoration:none; transition:.28s; }
+.btn-a { background:linear-gradient(92deg,#0ea5e9,#6366f1); color:#fff; box-shadow:0 8px 28px rgba(56,189,248,.28); }
+.btn-a:hover { transform:translateY(-3px); box-shadow:0 14px 38px rgba(56,189,248,.42); }
+.btn-b { border:1px solid rgba(56,189,248,.4); color:#7dd3fc; }
+.btn-b:hover { background:rgba(56,189,248,.1); transform:translateY(-3px); }
+
+/* 数据条 */
+.stats { position:relative; z-index:2; max-width:1080px; margin:-40px auto 0; padding:0 24px; animation:fadeUp .8s .55s ease both; }
+.stats-inner { display:grid; grid-template-columns:repeat(4,1fr); background:rgba(17,24,42,.85); border:1px solid rgba(56,189,248,.16); border-radius:14px; backdrop-filter:blur(10px); }
+.stat { text-align:center; padding:30px 12px; border-right:1px solid rgba(56,189,248,.1); }
+.stat:last-child { border-right:none; }
+.stat b { display:block; font-size:1.9rem; color:#38bdf8; font-weight:700; letter-spacing:1px; }
+.stat span { display:block; margin-top:8px; font-size:.8rem; color:#7b8fa8; letter-spacing:2px; }
+
+/* ===== 通用Section ===== */
+section.blk { max-width:1080px; margin:0 auto; padding:96px 24px 0; }
+.sec-head { text-align:center; margin-bottom:52px; }
+.sec-head .kicker { color:#38bdf8; font-size:.75rem; letter-spacing:5px; margin-bottom:14px; }
+.sec-head h2 { color:#fff; font-size:clamp(1.4rem,2.6vw,2rem); letter-spacing:3px; font-weight:600; }
+.sec-head .line { width:44px; height:2px; margin:20px auto 0; background:linear-gradient(90deg,transparent,#38bdf8,transparent); }
+
+/* 核心能力 */
+.caps { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+.cap { position:relative; background:linear-gradient(160deg,rgba(23,32,54,.9),rgba(14,20,36,.9)); border:1px solid rgba(56,189,248,.14); border-radius:14px; padding:34px 32px; transition:.3s; overflow:hidden; }
+.cap::after { content:""; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(56,189,248,.55),transparent); opacity:0; transition:.3s; }
+.cap:hover { transform:translateY(-6px); border-color:rgba(56,189,248,.4); box-shadow:0 18px 44px rgba(2,8,20,.6); }
+.cap:hover::after { opacity:1; }
+.cap .ico { width:46px; height:46px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:1.25rem; margin-bottom:20px; background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.3); color:#7dd3fc; }
+.cap h3 { color:#e8f1fa; font-size:1.08rem; letter-spacing:1.5px; margin-bottom:12px; }
+.cap p { color:#8195ad; font-size:.9rem; line-height:1.95; }
+
+/* 语音场景 */
+.voice { position:relative; background:linear-gradient(180deg,transparent,rgba(56,189,248,.045) 30%,transparent); border-radius:18px; padding:52px 44px; border:1px solid rgba(56,189,248,.14); }
+.voice::before { content:""; position:absolute; left:44px; right:44px; top:0; height:2px; background:linear-gradient(90deg,transparent,rgba(56,189,248,.7),transparent); }
+.scenes { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:36px; }
+.scene { background:rgba(13,19,34,.7); border:1px solid rgba(56,189,248,.16); border-radius:12px; padding:26px 16px; text-align:center; transition:.3s; }
+.scene:hover { border-color:rgba(56,189,248,.5); background:rgba(20,30,52,.9); transform:translateY(-5px); }
+.scene .tag { width:34px; height:34px; margin:0 auto 14px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.82rem; font-weight:700; color:#38bdf8; border:1px solid rgba(56,189,248,.5); background:rgba(56,189,248,.08); }
+.scene b { display:block; color:#e8f1fa; font-size:.92rem; letter-spacing:1px; margin-bottom:10px; }
+.scene p { color:#7e93ad; font-size:.78rem; line-height:1.8; }
+
+/* 业务范围 */
+.scope { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.scope span { border:1px solid rgba(56,189,248,.22); border-radius:999px; padding:11px 26px; color:#9db4cd; font-size:.86rem; letter-spacing:1.5px; background:rgba(17,24,42,.7); transition:.28s; }
+.scope span:hover { border-color:rgba(56,189,248,.55); color:#7dd3fc; transform:translateY(-2px); }
+
+/* 联系 */
+.contact { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.ccard { background:linear-gradient(160deg,rgba(23,32,54,.92),rgba(14,20,36,.92)); border:1px solid rgba(56,189,248,.16); border-radius:14px; padding:34px 34px; }
+.ccard .row { display:flex; align-items:baseline; margin-bottom:22px; }
+.ccard .row:last-child { margin-bottom:0; }
+.ccard .lab { width:64px; color:#38bdf8; font-size:.82rem; letter-spacing:2px; flex-shrink:0; }
+.ccard .val { color:#dce6f2; font-size:.95rem; letter-spacing:.5px; }
+.ccard.q { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; border-style:dashed; }
+.ccard.q .big { color:#7dd3fc; font-size:1.5rem; letter-spacing:3px; margin-bottom:14px; font-weight:600; }
+.ccard.q p { color:#7e93ad; font-size:.86rem; line-height:2; }
+
+/* footer */
+footer { margin-top:100px; border-top:1px solid rgba(56,189,248,.12); background:rgba(8,12,22,.92); padding:36px 24px; text-align:center; }
+footer p { color:#5d7189; font-size:.8rem; letter-spacing:2px; }
+footer .en { color:#38465c; font-size:.68rem; margin-top:8px; letter-spacing:3px; }
+
+@media(max-width:860px){
+  nav{padding:16px 20px} nav .links a{margin-left:18px;font-size:.8rem}
+  .stats-inner{grid-template-columns:repeat(2,1fr)} .stat:nth-child(2){border-right:none}
+  .caps{grid-template-columns:1fr} .scenes{grid-template-columns:repeat(2,1fr)}
+  .contact{grid-template-columns:1fr} .voice{padding:36px 22px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">健科优创<span>·</span>TECH</div>
+  <div class="links">
+    <a href="#caps">核心能力</a>
+    <a href="#voice">语音场景</a>
+    <a href="#scope">业务范围</a>
+    <a href="#contact">联系我们</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div class="badge">AI HEALTH ECOSYSTEM</div>
+  <h1>智能健康设备<br><span class="grad">软硬件一体化解决方案</span></h1>
+  <p class="sub">AI智能体脂秤 · 物联网云平台 · 语音交互 · 多平台健康APP</p>
+  <p class="en">SHENZHEN JIANKE YOUCHUANG TECHNOLOGY CO., LTD.</p>
+  <div class="cta">
+    <a class="btn btn-a" href="#caps">探索方案</a>
+    <a class="btn btn-b" href="#contact">联系合作</a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><b>20+</b><span>身体指标检测</span></div>
+    <div class="stat"><b>多端</b><span>APP全平台覆盖</span></div>
+    <div class="stat"><b>多类</b><span>智能设备接入</span></div>
+    <div class="stat"><b>全链路</b><span>语音交互能力</span></div>
+  </div>
+</div>
+
+<section class="blk" id="caps">
+  <div class="sec-head">
+    <div class="kicker">CAPABILITIES</div>
+    <h2>核心能力</h2>
+    <div class="line"></div>
+  </div>
+  <div class="caps">
+    <div class="cap"><div class="ico">◈</div><h3>自研物联网云平台</h3><p>设备接入、数据管理、消息通信一体化，支撑智能健康设备规模化连接，构建统一设备生态底座。</p></div>
+    <div class="cap"><div class="ico">◉</div><h3>AI语音交互技术</h3><p>语音唤醒、智能问答，大模型驱动的健康咨询与语音播报，支持唤醒词与音色定制。</p></div>
+    <div class="cap"><div class="ico">▣</div><h3>多平台健康APP</h3><p>iOS、Android、鸿蒙等多端覆盖，健康数据管理与趋势分析一站式体验。</p></div>
+    <div class="cap"><div class="ico">◆</div><h3>智能硬件方案</h3><p>AI智能体脂秤等健康设备的软硬件一体化设计，从方案到量产的全流程交付。</p></div>
+  </div>
+</section>
+
+<section class="blk" id="voice">
+  <div class="sec-head">
+    <div class="kicker">VOICE SCENES</div>
+    <h2>AI智能秤 · 语音场景</h2>
+    <div class="line"></div>
+  </div>
+  <div class="voice">
+    <div class="scenes">
+      <div class="scene"><div class="tag">A</div><b>语音对话</b><p>"小际小际"语音唤醒<br>自然语言交互<br>健康咨询秒回应答</p></div>
+      <div class="scene"><div class="tag">B</div><b>健康播报</b><p>站上秤即测即报<br>多项身体指标<br>语音实时播报</p></div>
+      <div class="scene"><div class="tag">C</div><b>生活查询</b><p>天气、出行、资讯<br>一问便知<br>语音对话随问随答</p></div>
+      <div class="scene"><div class="tag">D</div><b>趋势提醒</b><p>体重变化、健康趋势<br>定期语音提醒<br>健康管理更省心</p></div>
+      <div class="scene"><div class="tag">E</div><b>个性定制</b><p>唤醒词、音色<br>可按需定制<br>打造专属语音体验</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="scope">
+  <div class="sec-head">
+    <div class="kicker">SERVICES</div>
+    <h2>业务范围</h2>
+    <div class="line"></div>
+  </div>
+  <div class="scope">
+    <span>软件开发</span><span>电子产品技术开发</span><span>智能设备方案设计</span><span>技术服务与咨询</span><span>知识产权相关技术服务</span>
+  </div>
+</section>
+
+<section class="blk" id="contact">
+  <div class="sec-head">
+    <div class="kicker">CONTACT</div>
+    <h2>联系我们</h2>
+    <div class="line"></div>
+  </div>
+  <div class="contact">
+    <div class="ccard">
+      <div class="row"><span class="lab">邮箱</span><span class="val">appstore@ivitawell.com</span></div>
+      <div class="row"><span class="lab">电话</span><span class="val">13424854993</span></div>
+      <div class="row"><span class="lab">地址</span><span class="val">深圳市宝安区新安街道上合社区33区大宝路83号</span></div>
+    </div>
+    <div class="ccard q">
+      <div class="big">合作洽谈</div>
+      <p>智能健康设备方案 · 物联网平台建设<br>APP定制开发 · 技术服务</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 深圳市健科优创科技有限公司</p>
+  <p class="en">SHENZHEN JIANKE YOUCHUANG TECHNOLOGY CO., LTD.</p>
+</footer>
+
+</body>
+</html>
